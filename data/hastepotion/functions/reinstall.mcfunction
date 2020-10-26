@@ -1,0 +1,2 @@
+function hastepotion:uninstall
+reload

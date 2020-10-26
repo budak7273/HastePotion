@@ -1,0 +1,3 @@
+# Display a message to players that just gained the magnet recipe that explains what it is
+
+tellraw @s ["",{"text":"\u2714","color":"dark_green"},{"text":" You just unlocked the crafting recipe for a ","color":"gray"},{"text":"Potion of Caffeination","color":"yellow"},{"text":". The recipe appears in your ","color":"gray"},{"text":"Recipe Book"},{"text":" as ","color":"gray"},{"text":"Dragon's Breath", "color":"yellow"},{"text":".\n\nRead more ","color":"gray"},{"text":"here","underlined":true,"color":"gray","clickEvent":{"action":"open_url","value":"http://bit.ly/HastePotionDatapack"}},{"text":".","color":"gray"}]
