@@ -1,7 +1,7 @@
 {
     "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
     "criteria": {
-        "has_honey_bottle": {
+        "hasHoneyBottle": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -15,6 +15,11 @@
             }
         }
     },
+    "requirements": [
+        [
+            "hasHoneyBottle"
+        ]
+    ],
     "rewards": {
         "recipes": [
             "hastepotion:hastepotion_one"

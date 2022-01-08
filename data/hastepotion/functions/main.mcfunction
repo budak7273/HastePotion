@@ -1,2 +1,0 @@
-# Detect players that have crafted at least one dragon's breath and deal with that
-execute as @e[type=minecraft:player,scores={h_craft_potion=1..}] if score @s h_craft_potion matches 1.. run function hastepotion:while001_crafted_potions
