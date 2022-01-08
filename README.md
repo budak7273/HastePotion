@@ -1,9 +1,10 @@
 # Haste Potion
 
 Survival-friendly datapack for Minecraft that adds an craftable
-**Potion of Caffeination** that you can drink to receive Haste IV (4).
+**Potion of Caffeination** that you can drink to receive Haste VIII (8).
 The potion allows you to instant-mine blocks you normally couldn't
 (namely cobblestone and logs) with Efficiency V (5) tools.
+In 1.18, this was updated to be Haste 8 so that instant mining Deepslate with an Efficiency 5 Netherite pickaxe is possible.
 
 After the potion runs out, you will suffer from 8 minutes of Mining Fatigue II (2),
 as you have overexerted yourself.
@@ -14,13 +15,13 @@ but you'll need to keep drinking them to avoid the eventual Mining Fatigue affli
 
 ## Download [here](https://github.com/budak7273/HastePotion/releases), put zip in your save's datapacks folder, then run `/reload` to install
 
-![Haste Potion item tooltip](https://i.imgur.com/YmhsgS5.png)
+![Haste Potion item tooltip](https://i.imgur.com/FKo5LXo.png)
 
 Datapacks do not yet support custom brewing recipes, so the potions are made in a crafting table.
-The crafting recipe will display as Dragon's Breath in the crafting table,
+The crafting recipe will display as Dragon's Breath (datapack limitation) in the crafting table,
 but as soon as you craft it, the items will be converted to Potions of Caffeination.
 
-<!-- TODO add crafting recipe screenshot -->
+![Recipe Screenshot](https://i.imgur.com/EDI3Rvx.png)
 
 You can craft a Potion of Caffeination with a
 <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/9/9b/Redstone_Torch_BE3.png/revision/latest/scale-to-width-down/150?cb=20200320184251" alt="Icon" width="20"/>
@@ -50,11 +51,13 @@ Players will receive a message in the chat upon unlocking the recipe
 
 * Survival friendly
   * Custom crafting recipe provides a method of obtaining potions in a survival playthrough
+* Works on Spigot/Paper/Etc.
 * Works for multiple players at once
 * Advancement/Recipe Book integration
   * The recipe will show up in your book once you have held a Honey Bottle.
   * It appears as Dragon's Breath for reasons explained in the [Further Details](#further-details) section.
-* Works on Spigot/Paper/Etc.
+* Addiction tracking
+  * Optional scoreboard for how many potions each player has consumed
 
 ## Commands (operators only)
 
@@ -68,13 +71,17 @@ Players will receive a message in the chat upon unlocking the recipe
     Does not delete, nor affect the functionality of, existing potions.
 * `/function hastepotion:advancement_trigger`
   * Display the informational message players see when they unlock the recipe.
+* `/scoreboard objectives setdisplay sidebar hp_potions_drank`
+  * Display the potion drinking stats scoreboard in the sidebar
+* `/scoreboard players set hp_player_interval hp_options <value>`
+  * Set the update interval to a number of ticks. Default is 20. You shouldn't have to change this.
 
 ## Further Details
 
 * I tried to document exactly how everything works via comments in the function files.
   Feel free to contact me with any questions. (Discord Robb#6731)
 * The potion is not made in a Brewing Stand because datapacks can not currently add brewing stand recipes.
-* The crafting recipe returns Dragon's Breath instead of a potion because existing potions in the inventory can not easily be restored when the crafting triggers.
+* The crafting recipe returns Dragon's Breath instead of a potion as the 'preview item' because existing potions in the inventory can not easily be restored when the crafting triggers.
 * Regular Dragon's Breath can still be used normally.
   * If you have some in your inventory when you craft Potions of Caffeination,
     they will be preserved.
@@ -85,8 +92,14 @@ Players will receive a message in the chat upon unlocking the recipe
   the potion gives you all of its listed effects at once.
   * The Haste given for the initial 8 minutes counteracts the 16 minutes of Mining Fatigue
   * Mining Fatigue is actually markedly more potent than Haste,
-    so the player actually needs to be given Haste 94 to reach Haste 4 levels of potency
+    so the player actually needs to be given Haste 94 (amp 93) to reach Haste 4 levels of potency,
+    or Haste 138 (amp 137) to reach Haste 8 levels of potency,
     while afflicted with Mining Fatigue 2.
+  * 138 exceeds the signed 8-bit data size of custom potion amplifier fields,
+    so Bad Luck 42 is given instead of Haste,
+    which a background loop detects and corrects on 1 second intervals.
+    This also allows for some fun sounds and particle effects.
+    You can edit the scoreboard to slow this down or speed it up.
 * Custom NBT data and NBT-hiding flags are used to hide the potion's true effects
   and replace them with the descriptive tooltip.
 
@@ -94,7 +107,7 @@ Players will receive a message in the chat upon unlocking the recipe
 
 * I based my crafting system off of the one that SethBling uses in his [Water Mill datapack](https://www.youtube.com/watch?v=hG-KOFf5GbM).
   * If you are looking to create a custom crafting recipe that produces an item with NBT data, I strongly suggest that you look at the comments I wrote in my functions. SethBling didn't leave any explanatory comments in his function files, and his process was difficult to follow at first.
-  * I also use this in my [Magnet datapack](http://bit.ly/MagnetDatapack).
+  * I also use this in my [Magnet datapack](http://bit.ly/MagnetDatapack), but this version is simpler.
 * I used an [online generator](https://advancements.thedestruc7i0n.ca/) to produce the advancement used to grant the recipes.
 * I used an [online tellraw generator](https://minecraft.tools/en/tellraw.php) to produce tellraw commands - those are a pain.
 * Multiple stackoverflow, reddit, and minecraft forums posts explaining command behavior and nitpicky syntax were read in the process of squashing bugs.
