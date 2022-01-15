@@ -3,8 +3,8 @@
 Survival-friendly datapack for Minecraft that adds an craftable
 **Potion of Caffeination** that you can drink to receive Haste VIII (8).
 The potion allows you to instant-mine blocks you normally couldn't
-(namely cobblestone and logs) with Efficiency V (5) tools.
-In 1.18, this was updated to be Haste 8 so that instant mining Deepslate with an Efficiency 5 Netherite pickaxe is possible.
+(namely cobblestone and logs) with Diamond Efficiency V (5) tools.
+In 1.18, this was updated to be Haste 8 (used to be only Haste 4) so that instant mining Deepslate with an Efficiency 5 Netherite pickaxe is possible.
 
 After the potion runs out, you will suffer from 8 minutes of Mining Fatigue II (2),
 as you have overexerted yourself.
