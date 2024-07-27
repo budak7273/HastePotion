@@ -1,16 +1,72 @@
 {
-	"type":"crafting_shapeless",
-	"ingredients":[
-		{"item":"minecraft:redstone_torch"},
-		{"item":"minecraft:glowstone_dust"},
-		{"item":"minecraft:blaze_powder"},
-		{"item":"minecraft:honey_bottle"},
-		{"item":"minecraft:glass_bottle"},
-		{"item":"minecraft:cocoa_beans"},
-		{"item":"minecraft:emerald"}
+	"type": "minecraft:crafting_shapeless",
+	"group": "hastepotion",
+	"ingredients": [
+		{
+			"item": "minecraft:redstone_torch"
+		},
+		{
+			"item": "minecraft:glowstone_dust"
+		},
+		{
+			"item": "minecraft:blaze_powder"
+		},
+		{
+			"item": "minecraft:honey_bottle"
+		},
+		{
+			"item": "minecraft:glass_bottle"
+		},
+		{
+			"item": "minecraft:cocoa_beans"
+		},
+		{
+			"item": "minecraft:emerald"
+		}
 	],
-	"result":{
-		"item":"minecraft:dragon_breath",
-		"count":1
+	"result": {
+		"id": "minecraft:potion",
+		"count": 1,
+		"components": {
+			"minecraft:enchantment_glint_override": true,
+			"minecraft:custom_name": "[{'text':'Potion of Caffeination','italic':false,'color':'yellow','bold':true}]",
+			"minecraft:lore": [
+				"[{'text':'Charges you up, but leaves you','italic':false,'color':'white'}]",
+				"[{'text':'drained after it expires.','italic':false,'color':'white'}]"
+			],
+			"minecraft:potion_contents": {
+				"custom_color": 16117338,
+				"custom_effects": [
+					{
+						"id": "haste",
+						"amplifier": 137,
+						"duration": 9600,
+						"ambient": true
+					},
+					{
+						"id": "glowing",
+						"duration": 1200
+					},
+					{
+						"id": "hunger",
+						"duration": 9600,
+						"ambient": true
+					},
+					{
+						"id": "nausea",
+						"duration": 140,
+						"show_particles": false,
+						"show_icon": false
+					},
+					{
+						"id": "unluck",
+						"amplifier": 42,
+						"duration": 140,
+						"show_particles": false,
+						"show_icon": false
+					}
+				]
+			}
+		}
 	}
 }
