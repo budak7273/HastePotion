@@ -1,9 +1,6 @@
 # take away the "marker" effect
 effect clear @s minecraft:unluck
 
-# apply the real haste effect
-effect give @s minecraft:haste 480 137 false
-
 # feed for 3 haunches
 effect give @s minecraft:saturation 1 5 true
 
